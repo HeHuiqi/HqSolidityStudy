@@ -17,15 +17,15 @@ interface IERC20 {
     function transfer(address to, uint amount) external returns (bool);
     function transferFrom(address from, address to, uint amount) external returns (bool);
 }
-
+// https://rinkeby.etherscan.io/address/0xc778417e063141139fce010982780140aa0cd5ab#contracts
 contract WETH9 is IERC20{
     string private _name;  
     string private _symbol;
     uint8  private _decimals;
     uint private _totalSupply;
 
-    event  Deposit(address indexed dst, uint wad);
-    event  Withdrawal(address indexed src, uint wad);
+    event  Deposit(address indexed to, uint amount);
+    event  Withdrawal(address indexed account, uint amount);
 
     mapping (address => uint)                       public  balanceOf;
     mapping (address => mapping (address => uint))  public  allowance;
