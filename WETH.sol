@@ -112,6 +112,14 @@ contract HqTranserHelper{
         // 代替form开始转账
         IERC20(token).transferFrom(from,to,amount);
     }
+    // 也可以将token转到这个合约上，然后再向其他to地址转发，可用此来实现奖励的分发
+    function selfTransferTo(address token,address to, uint amount) public{
+        // IERC20(token).transferFrom(address(this),to,amount);
+        // 或这个这里的from就是adddress(this)
+        IERC20(token).transfer(to,amount);
+
+    }
 }
+
 
 
