@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"HqTestToken.sol": "Context"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"HqTestToken.sol": {
+			"keccak256": "0xac94236cfc814570b1ddd8a6e9470945c6b313b39029616cfe0160dc67288ed8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://393abd2eeda9fe3969bdc4c6cd1f3533cf79c192329476dca153cac0f40b3471",
+				"dweb:/ipfs/QmRViydiGE8MiJG4CU3pMNXCBcUCDYJ5PVUAD4RhQsN15n"
+			]
+		}
+	},
+	"version": 1
+}

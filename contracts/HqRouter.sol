@@ -2,7 +2,6 @@
 
 pragma solidity >=0.7.0 <0.9.0;
 
-// import "./HqPair.sol";
 
 contract HqPair{
 
@@ -27,15 +26,52 @@ contract HqFactory {
         (address token0, address token1) = sortTokens(tokenA, tokenB);
         require(token0 != address(0), "UniswapV2: ZERO_ADDRESS");
         require(token1 != address(0), "UniswapV2: ZERO_ADDRESS");
-        require(getPair[token0][token1] == address(0), 'UniswapV2: PAIR_EXISTS'); // single check is sufficient
+        require(getPair[token0][token1] == address(0), 'UniswapV2-createPair: PAIR_EXISTS'); // single check is sufficient
 
-        bytes memory bytecode = type(HqPair).creationCode;
-        bytes32 salt = keccak256(abi.encodePacked(token0, token1));
+
+
+
         // https://eips.ethereum.org/EIPS/eip-1014
-        // 通过 create2(endowment, memory_start, memory_length, salt) 来创建新的合约
+        // 方式1：通过 create2(endowment, memory_start, memory_length, salt) 来创建新的合约
+
+        bytes32 salt = keccak256(abi.encodePacked(token0, token1));
+        bytes memory bytecode = type(HqPair).creationCode;
+        // 内嵌汇编
         assembly {
             pair := create2(0, add(bytecode, 32), mload(bytecode), salt)
         }
+
+        // 方式2：直接new来创建新的合约
+        // pair = address(new HqPair{salt: salt}());
+
+        num = HqPair(pair).myLockNumber();
+
+        getPair[token0][token1] = pair;
+        getPair[token1][token0] = pair; // populate mapping in the reverse direction
+        allPairs.push(pair);
+    }
+
+     function createPair2(address tokenA, address tokenB) internal returns (address pair, uint num){
+        require(tokenA != tokenB, "UniswapV3: IDENTICAL_ADDRESSES");
+        (address token0, address token1) = sortTokens(tokenA, tokenB);
+        require(token0 != address(0), "UniswapV3: ZERO_ADDRESS");
+        require(token1 != address(0), "UniswapV3: ZERO_ADDRESS");
+        require(getPair[token0][token1] == address(0), 'UniswapV2-createPair2: PAIR_EXISTS'); // single check is sufficient
+
+
+
+        // https://eips.ethereum.org/EIPS/eip-1014
+        // 方式1：通过 create2(endowment, memory_start, memory_length, salt) 来创建新的合约
+        bytes32 salt = keccak256(abi.encodePacked(token0, token1));
+        // bytes memory bytecode = type(HqPair).creationCode;
+        // // 内嵌汇编
+        // assembly {
+        //     pair := create2(0, add(bytecode, 32), mload(bytecode), salt)
+        // }
+
+        // 方式2：直接new来创建新的合约
+        pair = address(new HqPair{salt: salt}());
+
         num = HqPair(pair).myLockNumber();
 
         getPair[token0][token1] = pair;
@@ -58,7 +94,7 @@ contract HqFactory {
         0x70f2b2914A2a4b783FaEFb75f459A580616Fcb5e
     */
 
-    function pairFor(address factory, bytes32 salt) internal view returns (address pair) {
+    function pairFor(address factory, bytes32 salt) internal  pure returns (address pair) {
         // keccak256( 0xff ++ address ++ salt ++ keccak256(init_code))[12:]
         // bytes memory rlp = abi.encodePacked(hex"ff",factory,salt,keccak256(hex"00"));
         // bytes memory rlp = abi.encodePacked(hex"ff",adr,salt,keccak256(hex"deadbeef"));
@@ -77,6 +113,11 @@ contract HqFactory {
         address tokenA = 0x0000000000000000000000000000000000000001;
         address tokenB = 0x0000000000000000000000000000000000000002;
         (pair,num) = createPair(tokenA,tokenB);
+    }
+    function testCreatePair2() public returns(address pair, uint num) {
+        address tokenA = 0x0000000000000000000000000000000000000001;
+        address tokenB = 0x0000000000000000000000000000000000000002;
+        (pair,num) = createPair2(tokenA,tokenB);
     }
     function testPairFor() public view returns(address,uint){
         address factory = address(this);
