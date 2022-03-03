@@ -5,6 +5,19 @@ pragma solidity >=0.7.0 <0.9.0;
 
 contract HqPair{
 
+    address public factory;
+    address public token0;
+    address public token1;
+    constructor() public {
+        factory = msg.sender;
+    }
+     // called once by the factory at time of deployment
+    function initialize(address _token0, address _token1) external {
+        require(msg.sender == factory, 'UniswapV2: FORBIDDEN'); // sufficient check
+        token0 = _token0;
+        token1 = _token1;
+    }
+
     function myLockNumber() public pure  returns(uint num){
         return 100;
     }
@@ -40,6 +53,8 @@ contract HqFactory {
         assembly {
             pair := create2(0, add(bytecode, 32), mload(bytecode), salt)
         }
+        HqPair(pair).initialize(token0, token1);
+
 
         // 方式2：直接new来创建新的合约
         // pair = address(new HqPair{salt: salt}());
@@ -71,6 +86,7 @@ contract HqFactory {
 
         // 方式2：直接new来创建新的合约
         pair = address(new HqPair{salt: salt}());
+        HqPair(pair).initialize(token0, token1);
 
         num = HqPair(pair).myLockNumber();
 
