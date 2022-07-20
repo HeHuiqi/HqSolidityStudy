@@ -1,0 +1,122 @@
+{
+	"compiler": {
+		"version": "0.4.24+commit.e67f0147"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_id",
+						"type": "uint256"
+					},
+					{
+						"name": "_valueRetrieved",
+						"type": "string"
+					}
+				],
+				"name": "updateRequest",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_urlToQuery",
+						"type": "string"
+					},
+					{
+						"name": "_attributeToFetch",
+						"type": "string"
+					}
+				],
+				"name": "createRequest",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"name": "urlToQuery",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"name": "attributeToFetch",
+						"type": "string"
+					}
+				],
+				"name": "NewRequest",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"name": "urlToQuery",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"name": "attributeToFetch",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"name": "agreedValue",
+						"type": "string"
+					}
+				],
+				"name": "UpdatedRequest",
+				"type": "event"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Oracle.sol": "Oracle"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Oracle.sol": {
+			"keccak256": "0x858c0c67edc16af84b4893d749aed4a56feaee9a6328fa1d4a78cc3434caea85",
+			"urls": [
+				"bzzr://01f9f84181dbcd4ef1ea570c430d3776ee8919a02809067839c9fdf8998d849f"
+			]
+		}
+	},
+	"version": 1
+}

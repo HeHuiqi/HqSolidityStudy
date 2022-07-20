@@ -1,0 +1,156 @@
+{
+	"compiler": {
+		"version": "0.4.24+commit.e67f0147"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "totalSupply",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "weatherDescription",
+						"type": "string"
+					},
+					{
+						"name": "temperature",
+						"type": "string"
+					},
+					{
+						"name": "humidity",
+						"type": "string"
+					},
+					{
+						"name": "visibility",
+						"type": "string"
+					},
+					{
+						"name": "windSpeed",
+						"type": "string"
+					},
+					{
+						"name": "windDirection",
+						"type": "string"
+					},
+					{
+						"name": "windGust",
+						"type": "string"
+					}
+				],
+				"name": "updateWeather",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "oracleAddress",
+				"outputs": [
+					{
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"name": "_oracleAddress",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "weatherDescription",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"name": "temperature",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"name": "humidity",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"name": "visibility",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"name": "windSpeed",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"name": "windDirection",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"name": "windGust",
+						"type": "string"
+					}
+				],
+				"name": "WeatherUpdate",
+				"type": "event"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Oracle/WeatherOracle.sol": "WeatherOracle"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Oracle/WeatherOracle.sol": {
+			"keccak256": "0x21141c64bf9c117e5316c7f3d5d9adad330905c293a09be6759a00e2bc8528e8",
+			"urls": [
+				"bzzr://75e380ec598f84a690e5bd4a644b7554bcf3ab308b76523ff618ae6b9dd53470"
+			]
+		}
+	},
+	"version": 1
+}

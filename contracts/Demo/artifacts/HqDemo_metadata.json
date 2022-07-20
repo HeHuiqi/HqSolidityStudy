@@ -1,0 +1,82 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "age",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "sex",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct HqDemo.User",
+						"name": "u",
+						"type": "tuple"
+					}
+				],
+				"name": "getUser",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Demo/HqDemo.sol": "HqDemo"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Demo/HqDemo.sol": {
+			"keccak256": "0xb5ea9d3dd89b286348a00161db406b1dc484b7d0936cf56ab8ec50309c300f73",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://eb008f801dcff7f22041ddf2d1b27d8dad05a64a7d02d6970eccf1a3fd72b9ab",
+				"dweb:/ipfs/QmV4ov5j9n3jp8wbxzKS2ypE2eLJSDPzMQdxYPC14m3VsP"
+			]
+		}
+	},
+	"version": 1
+}

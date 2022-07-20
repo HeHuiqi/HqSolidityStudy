@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "usdt",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/test/HqToken.sol": "Token"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/test/HqToken.sol": {
+			"keccak256": "0xdab2f0020e4204e1f62741de46375ae38ee8fea4680d4c19ee2d68af9f03457f",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://39aa82a193dea49f3015b1587602d2916a4ebc12ec43b5e3ec346564bab35557",
+				"dweb:/ipfs/QmQLRnhngzH6rKMCQ6pFv2EUK69CZGcArJ4TkZsod2XKWU"
+			]
+		}
+	},
+	"version": 1
+}
